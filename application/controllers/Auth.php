@@ -43,7 +43,12 @@ class Auth extends CI_Controller
 					];
 					//simpan ke dalam session
 					$this->session->set_userdata($data);
-					redirect('user');
+					//cek role_id, apakah user biasa atau admin
+					if($user['role_id'] == 1){
+						redirect('admin');
+					}else{
+						redirect('user');
+					}
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Password Salah! </div>');
 					redirect('auth');
@@ -88,7 +93,7 @@ class Auth extends CI_Controller
 
 			$this->db->insert('user', $data);
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Registrasi Berhasil! </div>');
-			redirect('auth/login');
+			redirect('auth/index');
 		}
 	}
 
