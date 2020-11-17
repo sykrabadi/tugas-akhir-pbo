@@ -25,6 +25,7 @@ class Lomba extends CI_Controller
     $this->form_validation->set_rules('nim2', 'NIM Anggota 2', 'required');
     $this->form_validation->set_rules('jurusan2', 'Jurusan Anggota 2', 'required');
 
+    //cek apakah form sudah diisi
     if($this->form_validation->run()==false){
       $this->load->view('templates/header', $data);
       $this->load->view('templates/sidebar', $data);
@@ -33,15 +34,15 @@ class Lomba extends CI_Controller
       $this->load->view('templates/footer');
     }else{
       $data = [
-        'namatim' => $this->input->post('namatim'),
-        'dosen' => $this->input->post('dosen'),
-        'nip' => $this->input->post('nip'),
-        'nama1' => $this->input->post('nama1'),
-        'nim1' => $this->input->post('nim1'),
-        'jurusan1' => $this->input->post('jurusan1'),
-        'nama2' => $this->input->post('namatim'),
-        'nim2' => $this->input->post('nim2'),
-        'jurusan2' => $this->input->post('jurusan2')
+        'namatim'   => $this->input->post('namatim'),
+        'dosen'     => $this->input->post('dosen'),
+        'nip'       => $this->input->post('nip'),
+        'nama1'     => $this->input->post('nama1'),
+        'nim1'      => $this->input->post('nim1'),
+        'jurusan1'  => $this->input->post('jurusan1'),
+        'nama2'     => $this->input->post('namatim'),
+        'nim2'      => $this->input->post('nim2'),
+        'jurusan2'  => $this->input->post('jurusan2')
       ];
     $this->db->insert('registered_team', $data);
     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Tim Berhasil Didaftarkan! </div>');

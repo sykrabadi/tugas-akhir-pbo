@@ -42,7 +42,8 @@
 
             </div>
             <!-- End of Main Content -->
-             <!-- Modal -->
+
+            <!-- Daftar Modal -->
             <div class="modal fade" id="daftar" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -110,6 +111,7 @@
               </div>
             </div>
 
+            <!-- Info Modal -->
             <div class="modal fade" id="info" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -146,3 +148,4 @@
                 </div>
               </div>
             </div>
+          </div>
