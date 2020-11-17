@@ -34,7 +34,7 @@
                             <?php else : ?>
                               <a href="" class="daftar-lomba badge badge-primary" data-toggle="modal" data-target="#daftar" data-id='<?= $l['id'] ?>'>Daftar</a>
                             <?php endif; ?>
-                            <a href="" class="badge badge-info" data-toggle="modal" data-target="#info" data-id='<?= $l['id'] ?>'>Daftar Peserta</a>
+                            <a href="" class="daftar-lomba badge badge-info" data-toggle="modal" data-target="#info" data-id='<?= $l['id'] ?>'>Daftar Peserta</a>
 
                           </td>
                         </tr>
@@ -137,10 +137,12 @@
                               <th scope="col">Nama Anggota 2</th>
                             </tr>
                           </thead>
-                          <?php $i = 1; ?>
+                          <?php $i = 1 ?>
+                          <?php $team = $this->menu->getTeamByLomba($l['id']); ?>
                           <?php foreach ($team as $t) : ?>
                             <tbody>
                               <tr>
+                                <?= $l['id'] ?>
                                 <th scope="row"><?= $i++; ?></th>
                                 <td><?= $t['namatim'] ?></td>
                                 <td><?= $t['dosen'] ?></td>

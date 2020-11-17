@@ -14,7 +14,6 @@ class Lomba extends CI_Controller
     $data['title'] = 'Lomba';
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
     $data['lomba'] = $this->db->get('lomba')->result_array();
-    $data['team'] = $this->db->get('registered_team')->result_array();
     $this->form_validation->set_rules('namatim', 'Nama Tim', 'required');
     $this->form_validation->set_rules('dosen', 'Dosen', 'required');
     $this->form_validation->set_rules('nip', 'NIP', 'required|trim');
