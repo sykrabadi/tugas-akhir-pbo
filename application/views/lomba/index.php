@@ -117,7 +117,7 @@
                   </div>
                 </div>
 
-                <<<<<<< HEAD <div class="modal fade" id="info" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
+                <div class="modal fade" id="info" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -153,44 +153,4 @@
                       </div>
                     </div>
                   </div>
-                  </div>
-                  =======
-                  <!-- Info Modal -->
-                  <div class="modal fade" id="info" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="newSubMenuModalLabel">Daftar Peserta Lomba</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <table class="table table-hover">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nama Tim</th>
-                                <th scope="col">Nama Dosen</th>
-                                <th scope="col">Nama Anggota 1</th>
-                                <th scope="col">Nama Anggota 2</th>
-                              </tr>
-                            </thead>
-                            <?php $i = 1; ?>
-                            <?php foreach ($team as $t) : ?>
-                              <tbody>
-                                <tr>
-                                  <th scope="row"><?= $i++; ?></th>
-                                  <td><?= $t['namatim'] ?></td>
-                                  <td><?= $t['dosen'] ?></td>
-                                  <td><?= $t['nama1'] ?></td>
-                                  <td><?= $t['nama2'] ?></td>
-                                </tr>
-                              </tbody>
-                            <?php endforeach; ?>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  >>>>>>> 37cfbcb3adfce3cff861ba18b587a6c33b46f518
+                </div>
