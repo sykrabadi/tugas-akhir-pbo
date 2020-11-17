@@ -13,7 +13,7 @@ class Auth extends CI_Controller
 	{
 
 		//mencegah user kembali ke halaman login
-		if($this->session->userdata('email')){
+		if ($this->session->userdata('email')) {
 			redirect('user');
 		}
 
@@ -31,8 +31,8 @@ class Auth extends CI_Controller
 	}
 
 	private function _login()
-	{	
-		
+	{
+
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 
@@ -45,15 +45,16 @@ class Auth extends CI_Controller
 				// cek password
 				if (password_verify($password, $user['password'])) {
 					$data = [
+						'id' => $user['id'],
 						'email' => $user['email'],
 						'role_id' => $user['role_id']
 					];
 					//simpan ke dalam session
 					$this->session->set_userdata($data);
 					//cek role_id, apakah user biasa atau admin
-					if($user['role_id'] == 1){
+					if ($user['role_id'] == 1) {
 						redirect('admin');
-					}else{
+					} else {
 						redirect('user');
 					}
 				} else {
@@ -73,7 +74,7 @@ class Auth extends CI_Controller
 	public function registration()
 	{
 		//mencegah user kembali ke halaman login
-		if($this->session->userdata('email')){
+		if ($this->session->userdata('email')) {
 			redirect('user');
 		}
 		//set rules untuk input

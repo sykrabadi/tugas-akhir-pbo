@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Lomba extends CI_Controller
 {
@@ -24,14 +24,17 @@ class Lomba extends CI_Controller
     $this->form_validation->set_rules('nama2', 'Nama Anggota 2', 'required');
     $this->form_validation->set_rules('nim2', 'NIM Anggota 2', 'required');
     $this->form_validation->set_rules('jurusan2', 'Jurusan Anggota 2', 'required');
+    $this->form_validation->set_rules('id_lomba', 'id_lomba', 'required');
+    $this->form_validation->set_rules('id_user', 'id_user', 'required');
 
-    if($this->form_validation->run()==false){
+    $this->load->model('Menu_model', 'menu');
+    if ($this->form_validation->run() == false) {
       $this->load->view('templates/header', $data);
       $this->load->view('templates/sidebar', $data);
       $this->load->view('templates/topbar', $data);
       $this->load->view('lomba/index', $data);
       $this->load->view('templates/footer');
-    }else{
+    } else {
       $data = [
         'namatim' => $this->input->post('namatim'),
         'dosen' => $this->input->post('dosen'),
@@ -41,10 +44,13 @@ class Lomba extends CI_Controller
         'jurusan1' => $this->input->post('jurusan1'),
         'nama2' => $this->input->post('namatim'),
         'nim2' => $this->input->post('nim2'),
-        'jurusan2' => $this->input->post('jurusan2')
+        'jurusan2' => $this->input->post('jurusan2'),
+        'id_lomba' => $this->input->post('id_lomba'),
+        'id_user' => $this->input->post('id_user')
       ];
-    $this->db->insert('registered_team', $data);
-    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Tim Berhasil Didaftarkan! </div>');
+      $this->db->insert('registered_team', $data);
+
+      $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Tim Berhasil Didaftarkan! </div>');
       redirect('lomba');
     }
   }
