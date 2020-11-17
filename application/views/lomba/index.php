@@ -47,7 +47,8 @@
 
                 </div>
                 <!-- End of Main Content -->
-                <!-- Modal -->
+
+                <!-- Daftar Modal -->
                 <div class="modal fade" id="daftar" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -59,8 +60,6 @@
                       </div>
                       <div class="modal-body">
                         <form action="<?= base_url('lomba'); ?>" method="post">
-                          <input type="hidden" id="id_user" name="id_user" value="<?= $this->session->userdata('id') ?>">
-                          <input type="text" class="form-control" id="id_lomba" placeholder="id_lomba" name="id_lomba" value="<?= $l['id'] ?>" readonly>
                           <div class="justify-content-center">
                             <i class="fas fa-users"></i>
                             <label>Nama Tim</label>
