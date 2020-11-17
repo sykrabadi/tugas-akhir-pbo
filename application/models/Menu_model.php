@@ -24,8 +24,14 @@ class Menu_model extends CI_Model
 			return true;
 		}
 	}
+
 	public function getTeamByLomba($id_lomba)
 	{
 		return $this->db->get_where('registered_team', array('id_lomba' => $id_lomba))->result_array();
+	}
+
+	public function hapusLombaById($id)
+	{
+		$this->db->delete('lomba', ['id' => $id]);
 	}
 }
