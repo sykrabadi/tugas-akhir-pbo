@@ -60,13 +60,21 @@
                       <div class="modal-body">
                         <form action="<?= base_url('lomba'); ?>" method="post">
                           <input type="hidden" id="id_user" name="id_user" value="<?= $this->session->userdata('id') ?>">
-                          <input type="text" class="form-control" id="id_lomba" placeholder="id_lomba" name="id_lomba" value="<?= $l['id'] ?>" readonly>
+                          <input type="hidden" class="form-control my-2" id="id_lomba" placeholder="id_lomba" name="id_lomba" value="<?= $l['id'] ?>" readonly>
                           <div class="justify-content-center">
                             <i class="fas fa-users"></i>
                             <label>Nama Tim</label>
                           </div>
                           <div class="form-group">
                             <input type="text" class="form-control" id="title" name="namatim" placeholder="Nama Tim">
+                          </div>
+
+                          <div class="justify-content-center">
+                            <i class="fas fa-scroll"></i>
+                            <label>Judul Proposal</label>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="title" name="judul" placeholder="Judul Proposal">
                           </div>
 
                           <div class="justify-content-center">
@@ -78,6 +86,20 @@
                           </div>
                           <div class="form-group">
                             <input type="text" class="form-control" id="url" name="nip" placeholder="NIP/NIDN">
+                          </div>
+
+                          <div class="justify-content-center">
+                            <i class="fas fa-user-alt"></i>
+                            <label>Nama Ketua</label>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="icon" name="nama0" placeholder="Nama">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="icon" name="nim0" placeholder="NIM">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="icon" name="jurusan0" placeholder="Jurusan">
                           </div>
 
                           <div class="justify-content-center">
