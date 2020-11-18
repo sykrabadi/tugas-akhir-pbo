@@ -34,7 +34,7 @@
                                   <td><?=$l['penyelenggara'];?></td>
                                   <td><?=$l['tingkat'];?></td>
                                   <td>
-                                      <a href="<?= base_url();?>/admin/getAllPeserta/<?= $l['id'];?>" class="badge badge-info">Daftar Peserta</a>
+                                      <a href="<?= base_url();?>/admin/getAllPesertaById/<?= $l['id'];?>" class="badge badge-info">Daftar Peserta</a>
                                       <a href="<?= base_url();?>/admin/hapusLombaById/<?= $l['id'];?>" class="badge badge-danger" onclick="return confirm('yakin ?');">Hapus</a>
                                   </td>
                                 </tr>
@@ -51,7 +51,6 @@
             <!-- End of Main Content -->
 
             <!-- modal -->
-            
 
             <!-- Modal -->
             <div class="modal fade" id="newSubMenuModal" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">

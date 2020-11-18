@@ -111,7 +111,7 @@ class Admin extends CI_Controller
 		redirect('admin/lomba');
 	}
 
-	public function getAllPeserta($id)
+	public function getAllPesertaById($id)
 	{
 		$data['title'] = 'Daftar Peserta';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -120,6 +120,21 @@ class Admin extends CI_Controller
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('admin/daftarpeserta', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function getallusers()
+	{
+		$data['title'] = 'Daftar User';
+		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+		$this->load->model('Menu_model','menu');
+		$data['users'] = $this->menu->getallusers();
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('admin/users', $data);
 		$this->load->view('templates/footer');
 	}
 }

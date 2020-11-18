@@ -34,4 +34,13 @@ class Menu_model extends CI_Model
 	{
 		$this->db->delete('lomba', ['id' => $id]);
 	}
+
+	public function getallusers()
+	{
+		$this->db->select();
+        $this->db->from('registered_team');
+        $this->db->join('lomba', 'registered_team.id_lomba = lomba.id', 'left');
+
+		return $this->db->get()->result_array();
+	}
 }
