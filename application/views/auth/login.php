@@ -10,7 +10,7 @@
                         <div class="col-lg">
                             <div class="px-5 py-3">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 my-3"><b>LOGIN</b></h1>
+                                    <h1 class="h4 text-gray-900 my-3"><b>LOGINNNN</b></h1>
                                     <?= $this->session->flashdata('message'); ?>
                                 </div>
                                 <form class="user" method="post" action="<?= base_url('auth'); ?>">
