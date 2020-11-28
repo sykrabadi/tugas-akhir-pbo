@@ -31,10 +31,10 @@
                           <td>
                             <?php if ($this->menu->cekTerdaftar($this->session->userdata('id'), $l['id'])) : ?>
                               <a class="badge badge-success" disabled ?>Anda Sudah Terdaftar</a>
+                              <a href="<?= base_url('user/daftarPeserta/') ?><?= $l['id'] ?>" class="daftar-lomba passID2 badge badge-info">Daftar Peserta</a>
                             <?php else : ?>
                               <a href="" class="daftar-lomba passID badge badge-primary" data-toggle="modal" data-target="#daftar" data-id='<?= $l['id'] ?>'>Daftar</a>
                             <?php endif; ?>
-                            <a href="<?= base_url('user/daftarPeserta/') ?><?= $l['id'] ?>" class="daftar-lomba passID2 badge badge-info">Daftar Peserta</a>
 
                           </td>
                         </tr>

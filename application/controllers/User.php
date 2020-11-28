@@ -95,23 +95,10 @@ class User extends CI_Controller
 			$this->load->view('lomba/index', $data);
 			$this->load->view('templates/footer');
 		} else {
-			$this->addLomba();
+			$this->addTeam();
 		}
 	}
-	public function daftarPeserta()
-	{
-		$data['title'] = 'Daftar Peserta';
-		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['id'] = $this->uri->segment(3);
-		$data['lomba'] = $this->db->get_where('lomba', ['id' => $data['id']])->row_array();
-		$this->load->model('Menu_model', 'menu');
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data);
-		$this->load->view('templates/topbar', $data);
-		$this->load->view('lomba/daftar_peserta', $data);
-		$this->load->view('templates/footer');
-	}
-	private function addLomba()
+	private function addTeam()
 	{
 		$data = [
 			'namatim' => $this->input->post('namatim'),
@@ -134,6 +121,19 @@ class User extends CI_Controller
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Tim Berhasil Didaftarkan! </div>');
 		redirect('user/daftarLomba');
+	}
+	public function daftarPeserta()
+	{
+		$data['title'] = 'Daftar Peserta';
+		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['id'] = $this->uri->segment(3);
+		$data['lomba'] = $this->db->get_where('lomba', ['id' => $data['id']])->row_array();
+		$this->load->model('Menu_model', 'menu');
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('lomba/daftar_peserta', $data);
+		$this->load->view('templates/footer');
 	}
 	// public function beranda()
 	// {

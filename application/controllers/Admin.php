@@ -17,8 +17,7 @@ class Admin extends CI_Controller
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
-		//panggil file index dalam folder user, dalam folder view
-		$this->load->view('admin/index', $data);
+		$this->load->view('admin/index', $data); //panggil file index dalam folder user, dalam folder view
 		$this->load->view('templates/footer');
 	}
 
@@ -108,7 +107,7 @@ class Admin extends CI_Controller
 	{
 		$this->load->model('Menu_model', 'menu');
 		$this->menu->hapusLombaById($id);
-		redirect('admin/lomba');
+		redirect('admin/daftarLomba');
 	}
 
 	public function daftarPeserta($id)
@@ -123,9 +122,9 @@ class Admin extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function daftarUsers()
+	public function daftarTeam()
 	{
-		$data['title'] = 'Daftar User';
+		$data['title'] = 'Daftar Team';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
 		$this->load->model('Menu_model', 'menu');
@@ -134,7 +133,7 @@ class Admin extends CI_Controller
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
-		$this->load->view('admin/users', $data);
+		$this->load->view('admin/teams', $data);
 		$this->load->view('templates/footer');
 	}
 }
