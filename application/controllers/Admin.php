@@ -110,7 +110,7 @@ class Admin extends CI_Controller
 		redirect('admin/daftarLomba');
 	}
 
-	public function daftarPeserta($id)
+	public function daftarPeserta($id = null)
 	{
 		$data['title'] = 'Daftar Peserta';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
