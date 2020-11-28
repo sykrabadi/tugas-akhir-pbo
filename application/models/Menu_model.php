@@ -38,8 +38,8 @@ class Menu_model extends CI_Model
 	public function getallusers()
 	{
 		$this->db->select();
-        $this->db->from('registered_team');
-        $this->db->join('lomba', 'registered_team.id_lomba = lomba.id', 'left');
+		$this->db->from('registered_team');
+		$this->db->join('lomba', 'registered_team.id_lomba = lomba.id', 'left');
 
 		return $this->db->get()->result_array();
 	}

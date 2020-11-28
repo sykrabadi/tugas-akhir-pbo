@@ -1,5 +1,4 @@
-<div class="container">
-
+<div class="container mt-5">
     <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
@@ -31,21 +30,18 @@
                                     <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-user btn-block">
-                                Register Account
+                            <button type="submit" class="btn btn-success btn-user btn-block">
+                                REGISTER
                             </button>
                         </form>
                         <hr>
-                        <div class="text-center">
-                            <a class="small" href="forgot-password.html">Lupa Password?</a>
-                        </div>
                         <div class="text-center">
                             <a class="small" href="<?= base_url(); ?>auth">Sudah punya akun? Login!</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row justify=content-center">
+            <div class="row justify=content-center p-3">
                 <div class="col-6 d-flex justify-content-center">
                     <img src="<?= base_url('assets/img/pimnas.png') ?>" class="img-fluid p-4" style="width: 170px;">
                 </div>

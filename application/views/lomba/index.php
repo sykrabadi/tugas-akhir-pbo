@@ -31,10 +31,10 @@
                           <td>
                             <?php if ($this->menu->cekTerdaftar($this->session->userdata('id'), $l['id'])) : ?>
                               <a class="badge badge-success" disabled ?>Anda Sudah Terdaftar</a>
+                              <a href="<?= base_url('user/daftarPeserta/') ?><?= $l['id'] ?>" class="daftar-lomba passID2 badge badge-info">Daftar Peserta</a>
                             <?php else : ?>
-                              <a href="" class="daftar-lomba badge badge-primary" data-toggle="modal" data-target="#daftar" data-id='<?= $l['id'] ?>'>Daftar</a>
+                              <a href="" class="daftar-lomba passID badge badge-primary" data-toggle="modal" data-target="#daftar" data-id='<?= $l['id'] ?>'>Daftar</a>
                             <?php endif; ?>
-                            <a href="" class="daftar-lomba badge badge-info" data-toggle="modal" data-target="#info" data-id='<?= $l['id'] ?>'>Daftar Peserta</a>
 
                           </td>
                         </tr>
@@ -57,10 +57,10 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body">
-                        <form action="<?= base_url('lomba'); ?>" method="post">
+                      <div class="modal-body" id="daftarrr">
+                        <form action="<?= base_url('user/daftarLomba'); ?>" method="post">
                           <input type="hidden" id="id_user" name="id_user" value="<?= $this->session->userdata('id') ?>">
-                          <input type="hidden" class="form-control my-2" id="id_lomba" placeholder="id_lomba" name="id_lomba" value="<?= $l['id'] ?>" readonly>
+                          <input type="text" class="form-control my-2" id="id_lomba" placeholder="id_lomba" name="id_lomba" readonly>
                           <div class="justify-content-center">
                             <i class="fas fa-users"></i>
                             <label>Nama Tim</label>
@@ -115,7 +115,6 @@
                           <div class="form-group">
                             <input type="text" class="form-control" id="icon" name="jurusan1" placeholder="Jurusan">
                           </div>
-
                           <div class="justify-content-center">
                             <i class="fas fa-user-alt"></i>
                             <label>Data Anggota 2</label>
@@ -135,46 +134,6 @@
                         <button type="submit" class="btn btn-primary">Add</button>
                       </div>
                       </form>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="modal fade" id="info" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="newSubMenuModalLabel">Daftar Peserta Lomba</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Nama Tim</th>
-                              <th scope="col">Nama Dosen</th>
-                              <th scope="col">Nama Anggota 1</th>
-                              <th scope="col">Nama Anggota 2</th>
-                            </tr>
-                          </thead>
-                          <?php $i = 1 ?>
-                          <?php $team = $this->menu->getTeamByLomba($l['id']); ?>
-                          <?php foreach ($team as $t) : ?>
-                            <tbody>
-                              <tr>
-                                <?= $l['id'] ?>
-                                <th scope="row"><?= $i++; ?></th>
-                                <td><?= $t['namatim'] ?></td>
-                                <td><?= $t['dosen'] ?></td>
-                                <td><?= $t['nama1'] ?></td>
-                                <td><?= $t['nama2'] ?></td>
-                              </tr>
-                            </tbody>
-                          <?php endforeach; ?>
-                        </table>
-                      </div>
                     </div>
                   </div>
                 </div>

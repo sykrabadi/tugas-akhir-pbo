@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
@@ -8,74 +8,73 @@ class Admin extends CI_Controller
 		parent::__construct();
 		is_logged_in();
 	}
-	
+
 	public function index()
 	{
-		$data['title'] = 'Sistem Informasi PKM - Admin';
+		$data['title'] = 'Dashboard';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
-		//panggil file index dalam folder user, dalam folder view
-		$this->load->view('admin/index', $data);
+		$this->load->view('admin/index', $data); //panggil file index dalam folder user, dalam folder view
 		$this->load->view('templates/footer');
 	}
 
-	public function role()
-	{
+	// public function role()
+	// {
 
-		$data['title'] = 'Role';
-		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+	// 	$data['title'] = 'Role';
+	// 	$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-		$data['role'] = $this->db->get('user_role')->result_array();
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data);
-		$this->load->view('templates/topbar', $data);
-		//panggil file index dalam folder user, dalam folder view
-		$this->load->view('admin/role', $data);
-		$this->load->view('templates/footer');
-	}
-	
-	public function roleAccess($role_id)
-	{
+	// 	$data['role'] = $this->db->get('user_role')->result_array();
+	// 	$this->load->view('templates/header', $data);
+	// 	$this->load->view('templates/sidebar', $data);
+	// 	$this->load->view('templates/topbar', $data);
+	// 	//panggil file index dalam folder user, dalam folder view
+	// 	$this->load->view('admin/role', $data);
+	// 	$this->load->view('templates/footer');
+	// }
 
-		$data['title'] = 'Role Access';
-		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+	// public function roleAccess($role_id)
+	// {
 
-		$data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
-		$this->db->where('id !=', 1);
-		$data['menu'] = $this->db->get('user_menu')->result_array();
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data);
-		$this->load->view('templates/topbar', $data);
-		//panggil file index dalam folder user, dalam folder view
-		$this->load->view('admin/role-access', $data);
-		$this->load->view('templates/footer');
-	}
+	// 	$data['title'] = 'Role Access';
+	// 	$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-	public function changeAccess()
-	{
-		$menu_id = $this->input->post('menuId');
-		$role_id = $this->input->post('roleId');
+	// 	$data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
+	// 	$this->db->where('id !=', 1);
+	// 	$data['menu'] = $this->db->get('user_menu')->result_array();
+	// 	$this->load->view('templates/header', $data);
+	// 	$this->load->view('templates/sidebar', $data);
+	// 	$this->load->view('templates/topbar', $data);
+	// 	//panggil file index dalam folder user, dalam folder view
+	// 	$this->load->view('admin/role-access', $data);
+	// 	$this->load->view('templates/footer');
+	// }
 
-		$data = [
-			'role_id' => $role_id,
-			'menu_id' => $menu_id
-		];
+	// public function changeAccess()
+	// {
+	// 	$menu_id = $this->input->post('menuId');
+	// 	$role_id = $this->input->post('roleId');
 
-		$result = $this->db->get_where('user_access_menu', $data);
+	// 	$data = [
+	// 		'role_id' => $role_id,
+	// 		'menu_id' => $menu_id
+	// 	];
 
-		if($result->num_rows() < 1){
-			$this->db->insert('user_access_menu', $data);
-		}else{
-			$this->db->delete('user_access_menu', $data);
-		}
+	// 	$result = $this->db->get_where('user_access_menu', $data);
 
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Access Changed! </div>');
-	}
+	// 	if ($result->num_rows() < 1) {
+	// 		$this->db->insert('user_access_menu', $data);
+	// 	} else {
+	// 		$this->db->delete('user_access_menu', $data);
+	// 	}
 
-	public function addLomba()
+	// 	$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Access Changed! </div>');
+	// }
+
+	public function daftarLomba()
 	{
 		$data['title'] = 'Daftar Lomba - Admin';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -86,13 +85,13 @@ class Admin extends CI_Controller
 		$this->form_validation->set_rules('penyelenggara', 'Penyelenggara', 'required');
 		$this->form_validation->set_rules('tingkat', 'Tingkat', 'required');
 
-		if($this->form_validation->run() == false){
+		if ($this->form_validation->run() == false) {
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('templates/topbar', $data);
 			$this->load->view('admin/lomba', $data);
 			$this->load->view('templates/footer');
-		}else{
+		} else {
 			$data = [
 				'nama' => $this->input->post('nama'),
 				'penyelenggara' => $this->input->post('penyelenggara'),
@@ -108,10 +107,10 @@ class Admin extends CI_Controller
 	{
 		$this->load->model('Menu_model', 'menu');
 		$this->menu->hapusLombaById($id);
-		redirect('admin/lomba');
+		redirect('admin/daftarLomba');
 	}
 
-	public function getAllPesertaById($id)
+	public function daftarPeserta($id)
 	{
 		$data['title'] = 'Daftar Peserta';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -119,22 +118,22 @@ class Admin extends CI_Controller
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
-		$this->load->view('admin/daftarpeserta', $data);
+		$this->load->view('user/daftar_peserta', $data);
 		$this->load->view('templates/footer');
 	}
 
-	public function getallusers()
+	public function daftarTeam()
 	{
-		$data['title'] = 'Daftar User';
+		$data['title'] = 'Daftar Team';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-		$this->load->model('Menu_model','menu');
+		$this->load->model('Menu_model', 'menu');
 		$data['users'] = $this->menu->getallusers();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
-		$this->load->view('admin/users', $data);
+		$this->load->view('admin/teams', $data);
 		$this->load->view('templates/footer');
 	}
 }
