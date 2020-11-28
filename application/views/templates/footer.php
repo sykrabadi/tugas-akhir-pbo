@@ -72,13 +72,46 @@
           });
       });
   </script>
-  //lempar data id_lomba ke modal
+  <!-- lempar data id_lomba ke modal -->
   <script type="text/javascript">
-      $(document).on("click", ".daftar-lomba", function() {
-          var id = $(this).data('id');
-          $(".modal-body #id_lomba").val(id);
+      $(document).on("click", ".passID", function() {
+          var id = $(this).attr('data-id');
+          console.log(id);
+          $("#daftarrr #id_lomba").val(id);
       });
   </script>
+  <!-- <script type="text/javascript">
+      $('.passID2').on('click', function() {
+          const dataId = $(this).attr('data-id');
+          $.ajax({
+              url: "<?= base_url('user/daftarUser') ?>",
+              type: "post", //send with post 
+              dataType: "json",
+              cache: false,
+              data: {
+                  dataId: dataId
+              },
+              success: function(data) {
+                  console.log(data);
+                  data = JSON.parse(JSON.stringify(data));
+                  alert(data.dataId);
+              }
+          });
+      });
+        $(document).on("click", "", function() {
+            const dataId = $(this).attr('data-id');
+            $.ajax({
+                url: "",
+                type: "post", //send with post 
+                data: {
+                    dataId: dataId
+                },
+                success: function(data) {
+                    alert(data)
+                }
+            });
+        });
+  </script> -->
   </body>
 
   </html>
