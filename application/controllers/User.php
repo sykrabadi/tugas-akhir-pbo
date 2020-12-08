@@ -22,7 +22,7 @@ class User extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function edit()
+	public function edit($name = null, $upload_image = null)
 	{
 		$data['title'] = 'Edit Profile';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
